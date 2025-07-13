@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luminarr - Build websites and view them instantly on Android</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=mobile_code" />
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header id="mainHeader">
+        <div class="container header-container">
+            <div class="logo-wrapper">
+                <a href="#" class="logo">
+                    <div class="logo-icon">
+                        <span class="material-symbols-outlined">mobile_code</span>
+                    </div>
+                    <div class="logo-text">Luminarr</div>
+                </a>
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#download">Download</a></li>
+                    <li><a href="#">Docs</a></li>
+                </ul>
+            </nav>
+            <div class="theme-toggle" id="themeToggle">
+                <div class="theme-icon sun-icon">
+                    <i class="fas fa-sun"></i>
+                </div>
+                <div class="theme-icon moon-icon">
+                    <i class="fas fa-moon"></i>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="menu-overlay" id="menuOverlay"></div>
+    
+    <div class="mobile-menu" id="mobileMenu">
+        <ul>
+            <li><a href="#features">Features</a></li>
+            <li><a href="#download">Download</a></li>
+            <li><a href="#">Documentation</a></li>
+        </ul>
+        <div class="theme-toggle-container">
+            <span class="theme-toggle-label">Theme:</span>
+            <div class="theme-toggle" id="mobileThemeToggle">
+                <div class="theme-icon sun-icon">
+                    <i class="fas fa-sun"></i>
+                </div>
+                <div class="theme-icon moon-icon">
+                    <i class="fas fa-moon"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="preview-modal" id="previewModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="modal-title" id="modalTitle">Feature Preview</div>
+                <button class="close-modal" id="closeModal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <img id="modalImage" class="modal-image" src="" alt="Feature Preview">
+        </div>
+    </div>
+
+    <section class="hero">
+        <div class="particles" id="particles"></div>
+        <div class="container">
+            <div class="hero-content">
+                <h1>Build websites on your Android device</h1>
+                <p class="slogan">Luminarr is the ultimate mobile web IDE with fast preview, intelligent tools, and seamless workflow</p>
+                <a href="#download" class="cta-button">
+                    <i class="fas fa-download"></i>
+                    Get Luminarr
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="features" id="features">
+        <div class="container">
+            <h2 class="section-title">Features</h2>
+            <div class="features-grid">
+                <div class="feature-card" data-title="Fast Preview" data-image="assets/1.jpg">
+                    <div class="feature-header">
+                        <div class="feature-icon">
+                            <i class="fas fa-bolt"></i>
+                        </div>
+                        <div class="feature-text">
+                            <h3 class="feature-title">Fast Preview</h3>
+                            <p class="feature-desc">See changes in one click while you code. IDE supports previewing <code class="triple-quotes">.html</code> and <code class="triple-quotes">.md</code> files.</p>
+                        </div>
+                    </div>
+                    <div class="feature-image-container">
+                        <img src="assets/1.jpg" alt="Live Preview" class="feature-image">
+                    </div>
+                    <div class="feature-expand">
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                </div>
+                
+                <div class="feature-card" data-title="Clone from GitHub" data-image="assets/2.jpg">
+                    <div class="feature-header">
+                        <div class="feature-icon">
+                            <i class="fab fa-github"></i>
+                        </div>
+                        <div class="feature-text">
+                            <h3 class="feature-title">Clone from GitHub</h3>
+                            <p class="feature-desc">Clone any GitHub repository directly from the IDE.</p>
+                        </div>
+                    </div>
+                    <div class="feature-image-container">
+                        <img src="assets/2.jpg" alt="GitHub Integration" class="feature-image">
+                    </div>
+                    <div class="feature-expand">
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                </div>
+                
+                <div class="feature-card" data-title="Powerful code editor" data-image="assets/3.jpg">
+                    <div class="feature-header">
+                        <div class="feature-icon">
+                            <i class="fas fa-laptop-code"></i>
+                        </div>
+                        <div class="feature-text">
+                            <h3 class="feature-title">Powerful code editor</h3>
+                            <p class="feature-desc">Full syntax highlighting for 10+ languages and code-snippets for HTML, JS, CSS and a few more.</p>
+                        </div>
+                    </div>
+                    <div class="feature-image-container">
+                        <img src="assets/3.jpg" alt="Powerful code editor" class="feature-image">
+                    </div>
+                    <div class="feature-expand">
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                </div>
+                
+                <div class="feature-card" data-title="Material You Design" data-image="assets/4.jpg">
+                    <div class="feature-header">
+                        <div class="feature-icon">
+                            <i class="fas fa-palette"></i>
+                        </div>
+                        <div class="feature-text">
+                            <h3 class="feature-title">Material You Design</h3>
+                            <p class="feature-desc">Beautiful, adaptive UI that follows Material Design 3 principles.</p>
+                        </div>
+                    </div>
+                    <div class="feature-image-container">
+                        <img src="assets/4.jpg" alt="Material Design" class="feature-image">
+                    </div>
+                    <div class="feature-expand">
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                </div>
+                
+                <div class="feature-card" data-title="Project Export" data-image="assets/5.jpg">
+                    <div class="feature-header">
+                        <div class="feature-icon">
+                            <i class="fas fa-file-export"></i>
+                        </div>
+                        <div class="feature-text">
+                            <h3 class="feature-title">Project Export</h3>
+                            <p class="feature-desc">Export your entire project as a ZIP file to publish it or continue working on your PC.</p>
+                        </div>
+                    </div>
+                    <div class="feature-image-container">
+                        <img src="assets/5.jpg" alt="Project Export" class="feature-image">
+                    </div>
+                    <div class="feature-expand">
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                </div>
+                
+                <div class="feature-card" data-title="Built-in Console" data-image="assets/6.jpg">
+                    <div class="feature-header">
+                        <div class="feature-icon">
+                            <i class="fas fa-terminal"></i>
+                        </div>
+                        <div class="feature-text">
+                            <h3 class="feature-title">Built-in Console</h3>
+                            <p class="feature-desc">Powerful developer console (F12 analogue) powered by Eruda.</p>
+                        </div>
+                    </div>
+                    <div class="feature-image-container">
+                        <img src="assets/6.jpg" alt="Developer Console" class="feature-image">
+                    </div>
+                    <div class="feature-expand">
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                </div>
+                
+                <div class="feature-card" data-title="Markdown Assistant" data-image="assets/7.jpg">
+                    <div class="feature-header">
+                        <div class="feature-icon">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <div class="feature-text">
+                            <h3 class="feature-title">Markdown Helper</h3>
+                            <p class="feature-desc">Visual helper that inserts Markdown formatting with a single click.</p>
+                        </div>
+                    </div>
+                    <div class="feature-image-container">
+                        <img src="assets/7.jpg" alt="Markdown Assistant" class="feature-image">
+                    </div>
+                    <div class="feature-expand">
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                </div>
+                
+                <div class="feature-card" data-title="Integrated Color Picker" data-image="assets/8.jpg">
+                    <div class="feature-header">
+                        <div class="feature-icon">
+                            <i class="fas fa-eyedropper"></i>
+                        </div>
+                        <div class="feature-text">
+                            <h3 class="feature-title">Integrated Color Picker</h3>
+                            <p class="feature-desc">What else is there to say? It's a color picker. Just pick the color you need.</p>
+                        </div>
+                    </div>
+                    <div class="feature-image-container">
+                        <img src="assets/8.jpg" alt="Color Picker" class="feature-image">
+                    </div>
+                    <div class="feature-expand">
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                </div>
+                
+                <div class="feature-card" data-title="Smart Code Formatting" data-image="assets/9.jpg">
+                    <div class="feature-header">
+                        <div class="feature-icon">
+                            <i class="fas fa-indent"></i>
+                        </div>
+                        <div class="feature-text">
+                            <h3 class="feature-title">Smart Code Formatting</h3>
+                            <p class="feature-desc">Easily format JavaScript, XML and HTML with consistent indentation and structure.</p>
+                        </div>
+                    </div>
+                    <div class="feature-image-container">
+                        <img src="assets/9.jpg" alt="Code Formatting" class="feature-image">
+                    </div>
+                    <div class="feature-expand">
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Google Play Modal -->
+    <div class="google-play-modal" id="googlePlayModal">
+        <div class="google-play-content">
+            <div class="google-play-header">
+                <h3 class="google-play-title">Join Beta Testing Program</h3>
+                <button class="google-play-close" id="closeGooglePlayModal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="google-play-body">
+                <p>To get Luminarr on Google Play, you need to join our beta testing program:</p>
+                
+                <div class="google-play-step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <div class="step-title">Join our testing group</div>
+                        <p>Join the Luminarr Testers group to get access to beta testing.</p>
+                    </div>
+                </div>
+                
+                <div class="google-play-step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <div class="step-title">Register as a tester</div>
+                        <p>Follow the link in the group to register as a beta tester.</p>
+                    </div>
+                </div>
+                
+                <div class="google-play-step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <div class="step-title">Download the app</div>
+                        <p>After registration, you'll be able to download the beta version from Google Play.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="google-play-footer">
+                <a href="https://groups.google.com/g/luminarr-testers" target="_blank" class="google-play-button">
+                    <i class="fab fa-google"></i>
+                    Join Testing Group
+                </a>
+                <button class="google-play-button secondary" id="closeGooglePlayModalBtn">
+                    Close
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <section class="download" id="download">
+        <div class="container">
+            <div class="download-content">
+                <h2 class="download-title">Get Luminarr</h2>
+                <p class="download-desc">Available exclusively on Android devices</p>
+                
+                <div class="android-requirements">
+                    <div class="requirements-list">
+                        <div class="requirement-item">
+                            <i class="fab fa-android"></i>
+                            <span>Android 12 or higher</span>
+                        </div>
+                        <div class="requirement-item">
+                            <i class="fas fa-microchip"></i>
+                            <span>ARM64 recommended</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="store-buttons">
+                    <a href="#" class="store-button" id="googlePlayButton">
+                        <i class="fab fa-google-play store-icon"></i>
+                        <div class="store-info">
+                            <div class="store-name">Google Play</div>
+                        </div>
+                    </a>
+                    <a href="https://www.rustore.ru/catalog/app/dev.luminarr" class="store-button">
+                        <i class="fas fa-store-alt store-icon"></i>
+                        <div class="store-info">
+                            <div class="store-name">RuStore</div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="copyright">
+                    &copy; 2025 Luminarr. All rights reserved.
+                </div>
+                <div class="social-links">
+                    <a href="#" class="social-link">
+                        <i class="fab fa-telegram"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

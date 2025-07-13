@@ -1,5 +1,5 @@
 <p align="center">
-  <img width="1024" height="176" src="assets/10.png" alt="Logo">
+  <img src="assets/10.png" alt="Logo">
 </p>
 
 <h2 align="center"><b>Luminarr – Web Android IDE</b></h2>

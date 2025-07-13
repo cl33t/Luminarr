@@ -1175,7 +1175,7 @@ footer {
 .single-quotes {
     font-style: italic;
 }
-/* Google Play Modal Styles */
+/* Google Play Modal - Updated Styles */
 .google-play-modal {
     display: none;
     position: fixed;
@@ -1189,6 +1189,8 @@ footer {
     justify-content: center;
     opacity: 0;
     transition: opacity 0.3s ease;
+    padding: 20px;
+    box-sizing: border-box;
 }
 
 .google-play-modal.active {
@@ -1199,16 +1201,16 @@ footer {
 .google-play-content {
     background: var(--md-sys-color-surface);
     border-radius: var(--md-shape-corner-extra-large);
-    max-width: 90%;
-    max-height: 90vh;
+    max-width: 100%;
     width: 600px;
     overflow: hidden;
     box-shadow: var(--md-elevation-4);
+    display: flex;
+    flex-direction: column;
+    max-height: 90vh;
     transform: translateY(30px) scale(0.95);
     opacity: 0;
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    padding: 30px;
-    position: relative;
 }
 
 .google-play-modal.active .google-play-content {
@@ -1217,17 +1219,19 @@ footer {
 }
 
 .google-play-header {
-    padding: 0 0 20px 0;
+    padding: 20px 25px 15px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     border-bottom: 1px solid var(--md-sys-color-outline);
+    flex-shrink: 0;
 }
 
 .google-play-title {
-    font-size: 1.8rem;
+    font-size: 1.6rem;
     font-weight: 700;
     color: var(--md-sys-color-on-surface);
+    margin: 0;
 }
 
 .google-play-close {
@@ -1250,17 +1254,24 @@ footer {
 }
 
 .google-play-body {
-    padding: 25px 0;
+    padding: 20px 25px;
     color: var(--md-sys-color-on-surface);
     line-height: 1.7;
+    overflow-y: auto;
+    flex: 1;
+}
+
+.steps-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 20px;
 }
 
 .google-play-step {
     display: flex;
     align-items: flex-start;
     gap: 15px;
-    
-margin-top: 25px;
 }
 
 .step-number {
@@ -1274,6 +1285,7 @@ margin-top: 25px;
     color: var(--md-sys-color-on-primary);
     font-weight: 600;
     flex-shrink: 0;
+    font-size: 1rem;
 }
 
 .step-content {
@@ -1283,14 +1295,18 @@ margin-top: 25px;
 .step-title {
     font-weight: 600;
     margin-bottom: 8px;
-    font-size: 1.2rem;
+    font-size: 1.15rem;
+    color: var(--md-sys-color-on-surface);
 }
 
 .google-play-footer {
     display: flex;
     gap: 15px;
     justify-content: center;
-    margin-top: 20px;
+    padding: 20px;
+    border-top: 1px solid var(--md-sys-color-outline);
+    flex-shrink: 0;
+    flex-wrap: wrap;
 }
 
 .google-play-button {
@@ -1299,15 +1315,17 @@ margin-top: 25px;
     gap: 10px;
     background: linear-gradient(135deg, var(--md-sys-color-primary) 0%, var(--md-sys-color-secondary) 100%);
     color: var(--md-sys-color-on-primary);
-    padding: 14px 30px;
+    padding: 12px 24px;
     border-radius: var(--md-shape-corner-extra-large);
-    font-size: 1.1rem;
+    font-size: 1rem;
     font-weight: 600;
     text-decoration: none;
     box-shadow: 0 4px 12px rgba(var(--md-sys-color-primary-rgb), 0.3);
     transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
     border: none;
     cursor: pointer;
+    min-width: 180px;
+    justify-content: center;
 }
 
 .google-play-button:hover {
@@ -1323,4 +1341,56 @@ margin-top: 25px;
 .google-play-button.secondary:hover {
     background: var(--md-sys-color-surface);
     transform: translateY(-4px);
+}
+
+/* Mobile optimizations */
+@media (max-width: 600px) {
+    .google-play-content {
+        max-height: 85vh;
+        width: 100%;
+    }
+    
+    .google-play-header {
+        padding: 15px 20px 10px;
+    }
+    
+    .google-play-title {
+        font-size: 1.4rem;
+    }
+    
+    .google-play-body {
+        padding: 15px 20px;
+        font-size: 0.95rem;
+    }
+    
+    .steps-container {
+        gap: 15px;
+        margin-top: 15px;
+    }
+    
+    .step-title {
+        font-size: 1.1rem;
+    }
+    
+    .google-play-footer {
+        padding: 15px;
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .google-play-button {
+        width: 100%;
+        padding: 14px;
+    }
+}
+
+@media (max-width: 400px) {
+    .google-play-step {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .step-content {
+        padding-left: 0;
+    }
 }

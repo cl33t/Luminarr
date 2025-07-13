@@ -278,9 +278,9 @@ function openGooglePlayModal() {
     googlePlayModal.classList.add('active');
     document.body.style.overflow = 'hidden';
     
-    setTimeout(() => {
-        document.querySelector('.google-play-content').style.opacity = 1;
-    }, 10);
+    // Reset scroll position
+    const body = document.querySelector('.google-play-body');
+    if (body) body.scrollTop = 0;
 }
 
 function closeGooglePlayModalFunc() {
@@ -288,15 +288,25 @@ function closeGooglePlayModalFunc() {
     document.body.style.overflow = '';
 }
 
-googlePlayButton.addEventListener('click', function(e) {
-    e.preventDefault();
-    openGooglePlayModal();
-});
+if (googlePlayButton) {
+    googlePlayButton.addEventListener('click', function(e) {
+        e.preventDefault();
+        openGooglePlayModal();
+    });
+}
 
-closeGooglePlayModal.addEventListener('click', closeGooglePlayModalFunc);
-closeGooglePlayModalBtn.addEventListener('click', closeGooglePlayModalFunc);
-googlePlayModal.addEventListener('click', (e) => {
-    if (e.target === googlePlayModal) {
-        closeGooglePlayModalFunc();
-    }
-});
+if (closeGooglePlayModal) {
+    closeGooglePlayModal.addEventListener('click', closeGooglePlayModalFunc);
+}
+
+if (closeGooglePlayModalBtn) {
+    closeGooglePlayModalBtn.addEventListener('click', closeGooglePlayModalFunc);
+}
+
+if (googlePlayModal) {
+    googlePlayModal.addEventListener('click', (e) => {
+        if (e.target === googlePlayModal) {
+            closeGooglePlayModalFunc();
+        }
+    });
+}

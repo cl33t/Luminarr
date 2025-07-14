@@ -26,3 +26,7 @@
   <img src="assets/18.jpg" width="30%">
   <img src="assets/19.jpg" width="30%">
 </p>
+
+## Special thanks to:
++ [XedoxDev](https://github.com/XedoxDev) for treeview base and color picker
++ [Rosemoe](https://github.com/Rosemoe) for SoraEditor

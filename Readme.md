@@ -15,6 +15,11 @@
 
 #
 
+### Source Code
+
+The source code for this project is not distributed, **but** since **Luminarr is written on top of [Simple IDE](https://github.com/vxhjsd/Simple-IDE/)**, their source codes are quite similar, so you **can** use the Simple IDE sources.
+#
+
 <p align="center">
   <img src="assets/11.jpg" width="30%">
   <img src="assets/12.jpg" width="30%">

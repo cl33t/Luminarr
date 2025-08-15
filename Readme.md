@@ -10,7 +10,7 @@
 
 <p align="center">
  A detailed description of the app features and download links are available on the 
-  <a href="https://vxhjsd.github.io/luminarr/">website</a> 
+  <a href="https://vxhjsd.github.io/Luminarr/">website</a> 
 </p>
 
 #

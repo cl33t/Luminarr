@@ -2,8 +2,6 @@
   <img src="assets/10.png" alt="Logo">
 </p>
 
-<h2 align="center"><b>Luminarr – Web Android IDE</b></h2>
-
 <p align="center">
   <b> Fast and beautiful IDE for creating websites right on your Android device </b>
 </p>
@@ -13,12 +11,11 @@
   <a href="https://vxhjsd.github.io/Luminarr/">website</a> 
 </p>
 
-#
+## **Source Code**
 
-### Source Code
+Luminarr is a fork of Simple IDE. Although its own source code is not distributed, you can refer to the **[original Simple IDE repository](https://github.com/vxhjsd/Simple-IDE)**.
 
-The source code for this project is not distributed, **but** since **Luminarr is written on top of [Simple IDE](https://github.com/vxhjsd/Simple-IDE/)**, their source codes are quite similar, so you **can** use the Simple IDE sources.
-#
+## **Screenshots**
 
 <p align="center">
   <img src="assets/11.jpg" width="30%">
@@ -32,6 +29,6 @@ The source code for this project is not distributed, **but** since **Luminarr is
   <img src="assets/19.jpg" width="30%">
 </p>
 
-## Special thanks to:
+## **Special thanks to:**
 + [XedoxDev](https://github.com/XedoxDev) for treeview base and color picker
 + [Rosemoe](https://github.com/Rosemoe) for SoraEditor

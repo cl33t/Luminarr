@@ -8,12 +8,12 @@
 
 <p align="center">
  A detailed description of the app features and download links are available on the 
-  <a href="https://vxhjsd.github.io/Luminarr/">website</a> 
+  <a href="https://xapani.github.io/Luminarr/">website</a> 
 </p>
 
 ## **Source Code**
 
-Luminarr is a fork of Simple IDE. Although its own source code is not distributed, you can refer to the **[original Simple IDE repository](https://github.com/vxhjsd/Simple-IDE)**.
+Luminarr is a fork of Simple IDE. Although its own source code is not distributed, you can refer to the **[original Simple IDE repository](https://github.com/xapani/Simple-IDE)**.
 
 ## **Screenshots**
 

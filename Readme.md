@@ -2,6 +2,10 @@
   <img src="assets/10.png" alt="Logo">
 </p>
 
+<h1 align="center">
+✨ We Need Google Play Testers ✨
+</h1>
+
 <p align="center">
   <b> Fast and beautiful IDE for creating websites right on your Android device </b>
 </p>

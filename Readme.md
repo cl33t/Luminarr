@@ -15,12 +15,6 @@
   <a href="https://cl33t.github.io/Luminarr/">website</a> 
 </p>
 
-## **Source Code**
-
-Luminarr is a fork of Simple IDE. Although its own source code is not distributed, you can refer to the **[original Simple IDE repository](https://github.com/cl33t/Simple-IDE)**.
-
-## **Screenshots**
-
 <p align="center">
   <img src="assets/11.jpg" width="30%">
   <img src="assets/12.jpg" width="30%">

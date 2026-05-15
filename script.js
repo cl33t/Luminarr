@@ -1,312 +1,184 @@
-const themeToggle = document.getElementById('themeToggle');
-const mobileThemeToggle = document.getElementById('mobileThemeToggle');
-const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
 const THEME_KEY = 'luminarr_theme';
-const DARK_THEME = 'dark';
-const LIGHT_THEME = 'light';
+const THEMES = ['light', 'dark', 'amoled'];
+const CLASS_MAP = {
+    light: '',
+    dark: 'dark-theme',
+    amoled: 'amoled-theme'
+};
 
 function loadTheme() {
-    const savedTheme = localStorage.getItem(THEME_KEY);
-    if (savedTheme) {
-        if (savedTheme === DARK_THEME) {
-            document.body.classList.add('dark-theme');
-        } else {
-            document.body.classList.remove('dark-theme');
-        }
-    } 
-    else if (prefersDarkScheme.matches) {
-        document.body.classList.add('dark-theme');
-        localStorage.setItem(THEME_KEY, DARK_THEME);
-    } else {
-        localStorage.setItem(THEME_KEY, LIGHT_THEME);
-    }
+    const saved = localStorage.getItem(THEME_KEY) || 'light';
+    setTheme(saved);
 }
 
-function toggleTheme() {
-    if (document.body.classList.contains('dark-theme')) {
-        document.body.classList.remove('dark-theme');
-        localStorage.setItem(THEME_KEY, LIGHT_THEME);
-    } else {
-        document.body.classList.add('dark-theme');
-        localStorage.setItem(THEME_KEY, DARK_THEME);
-    }
-    updateToggleVisuals();
-}
+function setTheme(theme) {
+    if (!THEMES.includes(theme)) theme = 'light';
 
-function updateToggleVisuals() {
-    const isDark = document.body.classList.contains('dark-theme');
-    const toggles = [themeToggle, mobileThemeToggle];
-    
-    toggles.forEach(toggle => {
-        if (toggle) {
-            const sunIcon = toggle.querySelector('.sun-icon');
-            const moonIcon = toggle.querySelector('.moon-icon');
-            
-            if (isDark) {
-                sunIcon.style.color = 'var(--md-sys-color-on-surface-variant)';
-                moonIcon.style.color = '#1C1B1F';
-            } else {
-                sunIcon.style.color = 'var(--md-sys-color-on-primary)';
-                moonIcon.style.color = 'var(--md-sys-color-on-surface-variant)';
-            }
-        }
+    document.body.classList.remove('dark-theme', 'amoled-theme');
+
+    const cls = CLASS_MAP[theme];
+    if (cls) document.body.classList.add(cls);
+
+    document.querySelectorAll('.theme-segmented button').forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.theme === theme);
     });
+
+    localStorage.setItem(THEME_KEY, theme);
 }
 
-loadTheme();
-updateToggleVisuals();
-
-themeToggle.addEventListener('click', toggleTheme);
-mobileThemeToggle.addEventListener('click', toggleTheme);
-
-const previewModal = document.getElementById('previewModal');
-const modalImage = document.getElementById('modalImage');
-const modalTitle = document.getElementById('modalTitle');
-const closeModal = document.getElementById('closeModal');
-
-function openPreviewModal(title, imageSrc) {
-    modalTitle.textContent = title;
-    modalImage.src = imageSrc;
-    modalImage.alt = title;
-    previewModal.classList.add('active');
-    document.body.style.overflow = 'hidden';
-    
-    setTimeout(() => {
-        document.querySelector('.modal-content').style.opacity = 1;
-    }, 10);
-}
-
-function closePreviewModal() {
-    previewModal.classList.remove('active');
-    document.body.style.overflow = '';
-}
-
-const featureCards = document.querySelectorAll('.feature-card');
-
-featureCards.forEach(card => {
-    const expandBtn = card.querySelector('.feature-expand');
-    const imageContainer = card.querySelector('.feature-image-container');
-    const chevron = expandBtn ? expandBtn.querySelector('i') : null;
-    const featureHeader = card.querySelector('.feature-header');
-    
-    featureHeader.addEventListener('click', function(e) {
-        if (window.innerWidth > 768) {
-            const title = card.getAttribute('data-title');
-            const imageSrc = card.getAttribute('data-image');
-            openPreviewModal(title, imageSrc);
-        } 
-        else {
-            featureCards.forEach(otherCard => {
-                if (otherCard !== card && otherCard.classList.contains('expanded')) {
-                    const otherContainer = otherCard.querySelector('.feature-image-container');
-                    const otherChevron = otherCard.querySelector('.feature-expand i');
-                    
-                    otherContainer.style.maxHeight = null;
-                    otherChevron.style.transform = 'rotate(0deg)';
-                    otherCard.classList.remove('expanded');
-                }
-            });
-            
-            if (card.classList.contains('expanded')) {
-                imageContainer.style.maxHeight = null;
-                if (chevron) chevron.style.transform = 'rotate(0deg)';
-                card.classList.remove('expanded');
-            } else {
-                imageContainer.style.maxHeight = imageContainer.scrollHeight + 'px';
-                if (chevron) chevron.style.transform = 'rotate(180deg)';
-                card.classList.add('expanded');
-            }
-        }
-    });
-    
-    if (expandBtn) {
-        expandBtn.addEventListener('click', (e) => {
-            e.stopPropagation();
-            
-            featureCards.forEach(otherCard => {
-                if (otherCard !== card && otherCard.classList.contains('expanded')) {
-                    const otherContainer = otherCard.querySelector('.feature-image-container');
-                    const otherChevron = otherCard.querySelector('.feature-expand i');
-                    
-                    otherContainer.style.maxHeight = null;
-                    otherChevron.style.transform = 'rotate(0deg)';
-                    otherCard.classList.remove('expanded');
-                }
-            });
-            
-            if (card.classList.contains('expanded')) {
-                imageContainer.style.maxHeight = null;
-                chevron.style.transform = 'rotate(0deg)';
-                card.classList.remove('expanded');
-            } else {
-                imageContainer.style.maxHeight = imageContainer.scrollHeight + 'px';
-                chevron.style.transform = 'rotate(180deg)';
-                card.classList.add('expanded');
-            }
-        });
-    }
+// Segmented toggle handlers
+document.querySelectorAll('.theme-segmented button').forEach(btn => {
+    btn.addEventListener('click', () => setTheme(btn.dataset.theme));
 });
 
-document.addEventListener('click', (e) => {
-    if (window.innerWidth <= 768) {
-        if (!e.target.closest('.feature-card.expanded')) {
-            featureCards.forEach(card => {
-                if (card.classList.contains('expanded')) {
-                    const container = card.querySelector('.feature-image-container');
-                    const chevron = card.querySelector('.feature-expand i');
-                    
-                    container.style.maxHeight = null;
-                    if (chevron) chevron.style.transform = 'rotate(0deg)';
-                    card.classList.remove('expanded');
-                }
-            });
-        }
-    }
-});
-
-closeModal.addEventListener('click', closePreviewModal);
-previewModal.addEventListener('click', (e) => {
-    if (e.target === previewModal) {
-        closePreviewModal();
-    }
-});
-
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-        }
-    });
-}, {
-    threshold: 0.1
-});
-
-document.querySelectorAll('.feature-card').forEach(card => {
-    observer.observe(card);
-});
-
-function createParticles() {
-    const particlesContainer = document.getElementById('particles');
-    const particleCount = 30;
-    
-    particlesContainer.innerHTML = '';
-    
-    for (let i = 0; i < particleCount; i++) {
-        const particle = document.createElement('div');
-        particle.classList.add('particle');
-        
-        const size = Math.random() * 20 + 10;
-        particle.style.width = `${size}px`;
-        particle.style.height = `${size}px`;
-        
-        const left = 5 + Math.random() * 90;
-        const top = 5 + Math.random() * 90;
-        particle.style.left = `${left}%`;
-        particle.style.top = `${top}%`;
-        
-        particle.style.animationDelay = `${Math.random() * 5}s`;
-        
-        particlesContainer.appendChild(particle);
-    }
-}
-
-const header = document.getElementById('mainHeader');
-
-window.addEventListener('scroll', () => {
-    if (window.scrollY > 50) {
-        header.classList.add('scrolled');
-    } else {
-        header.classList.remove('scrolled');
-    }
-});
-
+// Mobile menu
 const mobileMenuBtn = document.getElementById('mobileMenuBtn');
 const mobileMenu = document.getElementById('mobileMenu');
 const menuOverlay = document.getElementById('menuOverlay');
 
-function toggleMobileMenu() {
-    mobileMenu.classList.toggle('active');
-    menuOverlay.classList.toggle('active');
-    document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
-    
+function toggleMenu() {
+    const isActive = mobileMenu.classList.toggle('active');
+    menuOverlay.classList.toggle('active', isActive);
+    document.body.style.overflow = isActive ? 'hidden' : '';
+
     const icon = mobileMenuBtn.querySelector('i');
-    if (mobileMenu.classList.contains('active')) {
-        icon.classList.remove('fa-bars');
-        icon.classList.add('fa-times');
-    } else {
-        icon.classList.remove('fa-times');
-        icon.classList.add('fa-bars');
-    }
+    icon.classList.toggle('fa-bars', !isActive);
+    icon.classList.toggle('fa-times', isActive);
 }
 
-mobileMenuBtn.addEventListener('click', toggleMobileMenu);
-menuOverlay.addEventListener('click', toggleMobileMenu);
-
-mobileMenu.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', toggleMobileMenu);
+mobileMenuBtn?.addEventListener('click', toggleMenu);
+menuOverlay?.addEventListener('click', toggleMenu);
+mobileMenu?.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', toggleMenu);
 });
 
-function setColorVariables() {
-    const root = document.documentElement;
-    const primaryColor = getComputedStyle(root).getPropertyValue('--md-sys-color-primary');
-    const rgb = hexToRgb(primaryColor);
-    if (rgb) {
-        root.style.setProperty('--md-sys-color-primary-rgb', `${rgb.r}, ${rgb.g}, ${rgb.b}`);
-    }
+// Screenshot modal
+const screenshotModal = document.getElementById('screenshotModal');
+const screenshotModalTitle = document.getElementById('screenshotModalTitle');
+const screenshotModalImage = document.getElementById('screenshotModalImage');
+const closeScreenshotModal = document.getElementById('closeScreenshotModal');
+
+function openScreenshotModal(title, imageSrc) {
+    screenshotModalTitle.textContent = title;
+    screenshotModalImage.src = imageSrc;
+    screenshotModalImage.alt = title;
+    screenshotModal.classList.add('active');
+    document.body.style.overflow = 'hidden';
 }
 
-function hexToRgb(hex) {
-    const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex.trim());
-    return result ? {
-        r: parseInt(result[1], 16),
-        g: parseInt(result[2], 16),
-        b: parseInt(result[3], 16)
-    } : null;
+function closeScreenshotModalFunc() {
+    screenshotModal.classList.remove('active');
+    document.body.style.overflow = '';
+    screenshotModalImage.src = '';
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-    createParticles();
-    setColorVariables();
+closeScreenshotModal?.addEventListener('click', closeScreenshotModalFunc);
+screenshotModal?.addEventListener('click', (e) => {
+    if (e.target === screenshotModal) closeScreenshotModalFunc();
 });
-// Google Play Modal Logic
+
+// Google Play modal
 const googlePlayModal = document.getElementById('googlePlayModal');
+const googlePlayButton = document.getElementById('googlePlayButton');
 const closeGooglePlayModal = document.getElementById('closeGooglePlayModal');
 const closeGooglePlayModalBtn = document.getElementById('closeGooglePlayModalBtn');
-const googlePlayButton = document.getElementById('googlePlayButton');
 
-function openGooglePlayModal() {
+function openModal() {
     googlePlayModal.classList.add('active');
     document.body.style.overflow = 'hidden';
-    
-    // Reset scroll position
-    const body = document.querySelector('.google-play-body');
-    if (body) body.scrollTop = 0;
 }
 
-function closeGooglePlayModalFunc() {
+function closeModal() {
     googlePlayModal.classList.remove('active');
     document.body.style.overflow = '';
 }
 
-if (googlePlayButton) {
-    googlePlayButton.addEventListener('click', function(e) {
-        e.preventDefault();
-        openGooglePlayModal();
-    });
-}
+googlePlayButton?.addEventListener('click', openModal);
+closeGooglePlayModal?.addEventListener('click', closeModal);
+closeGooglePlayModalBtn?.addEventListener('click', closeModal);
+googlePlayModal?.addEventListener('click', (e) => {
+    if (e.target === googlePlayModal) closeModal();
+});
 
-if (closeGooglePlayModal) {
-    closeGooglePlayModal.addEventListener('click', closeGooglePlayModalFunc);
-}
-
-if (closeGooglePlayModalBtn) {
-    closeGooglePlayModalBtn.addEventListener('click', closeGooglePlayModalFunc);
-}
-
-if (googlePlayModal) {
-    googlePlayModal.addEventListener('click', (e) => {
-        if (e.target === googlePlayModal) {
-            closeGooglePlayModalFunc();
+// Escape to close modals
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+        if (screenshotModal?.classList.contains('active')) {
+            closeScreenshotModalFunc();
         }
-    });
+        if (googlePlayModal?.classList.contains('active')) {
+            closeModal();
+        }
+    }
+});
+
+// Load version from info.md
+async function loadVersion() {
+    const versionEl = document.getElementById('appVersion');
+    if (!versionEl) return;
+
+    try {
+        const response = await fetch('info.md');
+        if (!response.ok) throw new Error('Failed to load');
+        const text = await response.text();
+        versionEl.textContent = text.trim();
+    } catch (err) {
+        versionEl.textContent = '?';
+    }
 }
+
+// Load features from features.json
+async function loadFeatures() {
+    const grid = document.getElementById('featuresGrid');
+    const featuresList = document.getElementById('featuresList');
+    if (!grid) return;
+
+    try {
+        const response = await fetch('features.json');
+        if (!response.ok) throw new Error('Failed to load');
+        const features = await response.json();
+
+        // Render feature cards
+        grid.innerHTML = features.map((f, i) => {
+            const num = String(i + 1).padStart(2, '0');
+            return `
+                <div class="feature-card" data-title="${f.title}" data-image="${f.picture}">
+                    <div class="feature-number">${num}</div>
+                    <h3 class="feature-title">${f.title}</h3>
+                    <p class="feature-desc">${f.summary}</p>
+                    <div class="feature-thumb">
+                        <img src="${f.picture}" alt="${f.title}" loading="lazy">
+                    </div>
+                </div>
+            `;
+        }).join('');
+
+        // Update terminal features list
+        if (featuresList) {
+            const titles = features.map(f => f.title.toLowerCase().replace(/\s+/g, '-'));
+            featuresList.textContent = '["' + titles.join('", "') + '"]';
+        }
+
+        // Attach click handlers
+        grid.querySelectorAll('.feature-card').forEach(card => {
+            card.addEventListener('click', () => {
+                const title = card.dataset.title;
+                const image = card.dataset.image;
+                if (title && image) {
+                    openScreenshotModal(title, image);
+                }
+            });
+        });
+
+    } catch (err) {
+        grid.innerHTML = '<div class="feature-card"><p class="feature-desc">Failed to load features.</p></div>';
+        if (featuresList) featuresList.textContent = '[error]';
+    }
+}
+
+// Init
+document.addEventListener('DOMContentLoaded', () => {
+    loadTheme();
+    loadVersion();
+    loadFeatures();
+});

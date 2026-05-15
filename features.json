@@ -6,7 +6,7 @@
   },
   {
     "title": "Git Manager",
-    "summary": "An integrated Git workflow within the IDE. Clone repositories, commit, push, pull without leaving the app.",
+    "summary": "Git workflow within the IDE. Clone, commit, push, pull without leaving the app.",
     "picture": "assets/2.jpg"
   },
   {
@@ -16,7 +16,7 @@
   },
   {
     "title": "Material You",
-    "summary": "Adaptive interface following Material Design 3 principles. Respects system theme and colors.",
+    "summary": "Adaptive interface following MD 3 principles. Respects system theme and colors.",
     "picture": "assets/4.jpg"
   },
   {

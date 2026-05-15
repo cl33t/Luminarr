@@ -2,46 +2,46 @@
   {
     "title": "Live Preview",
     "summary": "Instant preview of .html and .md files. Just click ▶︎ and see the changes.",
-    "picture": "/assets/1.jpg"
+    "picture": "assets/1.jpg"
   },
   {
     "title": "Git Manager",
     "summary": "An integrated Git workflow within the IDE. Clone repositories, commit, push, pull without leaving the app.",
-    "picture": "/assets/2.jpg"
+    "picture": "assets/2.jpg"
   },
   {
     "title": "Code Editor",
     "summary": "Syntax highlighting for 10+ languages. Snippets for HTML, CSS, JS, and more.",
-    "picture": "/assets/3.jpg"
+    "picture": "assets/3.jpg"
   },
   {
     "title": "Material You",
     "summary": "Adaptive interface following Material Design 3 principles. Respects system theme and colors.",
-    "picture": "/assets/4.jpg"
+    "picture": "assets/4.jpg"
   },
   {
     "title": "Project Export",
     "summary": "Export entire projects as ZIP archives. Continue work on desktop or deploy to hosting.",
-    "picture": "/assets/5.jpg"
+    "picture": "assets/5.jpg"
   },
   {
     "title": "Dev Console",
     "summary": "Built-in browser console powered by Eruda. Inspect elements, view logs, debug on device.",
-    "picture": "/assets/6.jpg"
+    "picture": "assets/6.jpg"
   },
   {
     "title": "Markdown Helper",
     "summary": "Visual toolbar for Markdown formatting. Insert syntax with a single tap.",
-    "picture": "/assets/7.jpg"
+    "picture": "assets/7.jpg"
   },
   {
     "title": "Color Picker",
     "summary": "Integrated color selection tool. Pick, copy, and insert values directly into code.",
-    "picture": "/assets/8.jpg"
+    "picture": "assets/8.jpg"
   },
   {
     "title": "Code Format",
     "summary": "Formatting for JavaScript, XML, and HTML with consistent indentation and structure.",
-    "picture": "/assets/9.jpg"
+    "picture": "assets/9.jpg"
   }
 ]

@@ -7,11 +7,13 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=mobile_code" />
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <canvas id="bgCanvas" class="bg-canvas"></canvas>
     <header>
         <div class="container header-container">
             <a href="#" class="logo">
@@ -26,17 +28,18 @@
                     <li><a href="#download">Download</a></li>
                 </ul>
             </nav>
-            <div class="theme-segmented" id="themeSegmented">
-                <button data-theme="light" class="active">Light</button>
-                <button data-theme="dark">Dark</button>
-                <button data-theme="amoled">AMOLED</button>
+            <div class="header-actions">
+                <div class="theme-segmented" id="themeSegmented">
+                    <button data-theme="light" class="active">Light</button>
+                    <button data-theme="dark">Dark</button>
+                    <button data-theme="morph">Morph</button>
+                </div>
             </div>
             <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menu">
                 <i class="fas fa-bars"></i>
             </button>
         </div>
     </header>
-
     <div class="menu-overlay" id="menuOverlay"></div>
     <div class="mobile-menu" id="mobileMenu">
         <ul>
@@ -46,11 +49,9 @@
         <div class="theme-segmented" id="mobileThemeSegmented" style="margin-top: 2rem; width: 100%;">
             <button data-theme="light">Light</button>
             <button data-theme="dark">Dark</button>
-            <button data-theme="amoled">AMOLED</button>
+            <button data-theme="morph">Morph</button>
         </div>
     </div>
-
-    <!-- Screenshot Modal -->
     <div class="screenshot-modal" id="screenshotModal">
         <div class="screenshot-modal-content">
             <div class="screenshot-modal-header">
@@ -64,8 +65,6 @@
             </div>
         </div>
     </div>
-
-    <!-- Google Play Modal -->
     <div class="modal" id="googlePlayModal">
         <div class="modal-content">
             <div class="modal-header">
@@ -106,7 +105,6 @@
             </div>
         </div>
     </div>
-
     <section class="hero">
         <div class="container">
             <div class="hero-content">
@@ -120,7 +118,6 @@
             </div>
         </div>
     </section>
-
     <section class="features" id="features">
         <div class="container">
             <div class="section-header">
@@ -128,11 +125,9 @@
                 <h2 class="section-title">What it does</h2>
             </div>
             <div class="features-grid" id="featuresGrid">
-                <!-- Features loaded dynamically from features.json -->
             </div>
         </div>
     </section>
-
     <section class="download" id="download">
         <div class="container">
             <div class="download-grid">
@@ -140,7 +135,6 @@
                     <div class="section-label">Distribution</div>
                     <h2>Get Luminarr</h2>
                     <p>Available exclusively for Android. Choose your preferred distribution channel.</p>
-
                     <div class="requirements">
                         <div class="requirement-item">
                             <i class="fab fa-android"></i>
@@ -151,7 +145,6 @@
                             <span>ARM64 architecture recommended</span>
                         </div>
                     </div>
-
                     <div class="store-buttons">
                         <button class="store-button accent" id="googlePlayButton">
                             <i class="fab fa-google-play"></i>
@@ -163,7 +156,6 @@
                         </a>
                     </div>
                 </div>
-
                 <div class="terminal">
                     <div class="terminal-header">
                         <div class="terminal-dot"></div>
@@ -189,7 +181,6 @@
             </div>
         </div>
     </section>
-
     <footer>
         <div class="container">
             <div class="footer-content">
@@ -201,7 +192,6 @@
             </div>
         </div>
     </footer>
-
     <script src="script.js"></script>
 </body>
 </html>

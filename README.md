@@ -3,15 +3,15 @@
 </p>
 
 <h5 align="center">
-✨ We Need Google Play Testers ✨
+✨ Now on Google Play ✨
 </h5>
 
 <p align="center">
-  <b> Fast and beautiful IDE for creating websites right on your Android device </b>
+  <b>Fast and beautiful IDE for creating websites right on your Android device</b>
 </p>
 
 <p align="center">
- A detailed description of the app features and download links are available on the 
+  A detailed description of the app features and download links are available on the 
   <a href="https://cl33t.github.io/Luminarr/">website</a> 
 </p>
 

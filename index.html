@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=mobile_code" />
     <link rel="stylesheet" href="style.css">
+<base target="_blank">
 </head>
 <body>
     <canvas id="bgCanvas" class="bg-canvas"></canvas>
@@ -65,46 +66,6 @@
             </div>
         </div>
     </div>
-    <div class="modal" id="googlePlayModal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <div class="modal-title">Beta Access</div>
-                <button class="modal-close" id="closeGooglePlayModal"><i class="fas fa-times"></i></button>
-            </div>
-            <div class="modal-body">
-                <p>To install Luminarr from Google Play, join our beta program:</p>
-                <div class="modal-steps">
-                    <div class="modal-step">
-                        <div class="step-num">1</div>
-                        <div class="step-content">
-                            <h4>Join the group</h4>
-                            <p>Become a member of Luminarr Testers on Google Groups.</p>
-                        </div>
-                    </div>
-                    <div class="modal-step">
-                        <div class="step-num">2</div>
-                        <div class="step-content">
-                            <h4>Opt-in as tester</h4>
-                            <p>Use the link in the group to register as a beta tester.</p>
-                        </div>
-                    </div>
-                    <div class="modal-step">
-                        <div class="step-num">3</div>
-                        <div class="step-content">
-                            <h4>Install</h4>
-                            <p>Download the beta build directly from Google Play.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <a href="https://groups.google.com/g/luminarr-testers" target="_blank" class="modal-btn primary">
-                    <i class="fab fa-google"></i> Join Group
-                </a>
-                <button class="modal-btn" id="closeGooglePlayModalBtn">Close</button>
-            </div>
-        </div>
-    </div>
     <section class="hero">
         <div class="container">
             <div class="hero-content">
@@ -146,10 +107,10 @@
                         </div>
                     </div>
                     <div class="store-buttons">
-                        <button class="store-button accent" id="googlePlayButton">
+                        <a href="https://play.google.com/store/apps/details?id=dev.luminarr" class="store-button accent" target="_blank">
                             <i class="fab fa-google-play"></i>
                             Google Play
-                        </button>
+                        </a>
                         <a href="https://www.rustore.ru/catalog/app/dev.luminarr" class="store-button" target="_blank">
                             <i class="fas fa-store"></i>
                             RuStore
